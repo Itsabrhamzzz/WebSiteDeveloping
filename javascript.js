@@ -1,7 +1,7 @@
 window.onload = function() {
     document.getElementById("userInput").addEventListener("keyup", function(event) {
         if (event.key === 'Enter') {
-        calculate_fibo();
+            calculate_fibo();
         }
     });
 }
@@ -37,11 +37,17 @@ function fiboloops(inputuser) {
 }
 
 window.onload = function() {
-    document.getElementById("userInput2").addEventListener("keyup", function(event) {
+    document.getElementById("primeInput").addEventListener("keyup", function(event) {
         if (event.key === 'Enter') {
-        isprime();
+        calculate_prime();
         }
     });
+}
+
+function calculate_prime() {
+    var primeinput = document.getElementById("primeInput").value;
+    var presult = getNthPrime(primeinput);
+    document.getElementById("prime_result").innerHTML = presult;
 }
 
 function isprime(userInput2){
@@ -52,11 +58,23 @@ function isprime(userInput2){
         return true;
     }
     var nsqrt = Math.sqrt(userInput2);
-    for(i = 2; i < nsqrt; i++){
+    for(i = 2; i <= nsqrt; i++){
         var mod = userInput2 % i;
         if (mod == 0) {
             return false;
         }
     }
     return true;
+}
+
+function getNthPrime(nth){
+    var counter = 0;
+    var i = 2;
+    while (counter < nth) {
+        if (isprime(i)) {
+            counter++;
+    }
+    i++;
+    }
+    return --i;
 }
