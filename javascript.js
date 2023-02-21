@@ -58,7 +58,7 @@ function isprime(userInput2){
         return true;
     }
     var nsqrt = Math.sqrt(userInput2);
-    for(i = 2; i <= nsqrt; i++){
+    for(i = 2; i <= nsqrt; i++){ 
         var mod = userInput2 % i;
         if (mod == 0) {
             return false;
